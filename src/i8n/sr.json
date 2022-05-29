@@ -1,0 +1,19 @@
+{
+    "en": "Engleski",
+    "sr": "Srpski",
+    "save": "Sačuvajte",
+    "cancel": "Odustanite",
+    "application": {
+        "title": "Pancake management"
+    },
+    "ingredient": {
+        "title": "Sastojci",
+        "addBtn": "Dodaj sastojak",
+        "name": "Ime",
+        "price": "Cijena(KM)",
+        "healthyIngredient": "ZdravSastojak",
+        "ingredientCategoriesId": "IdKategorijeSastojka",
+        "addModalTitle": "Novi sastojak",
+        "editModalTitle": "izmjeni sasatojak"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "en": "English",
+    "sr": "Serbian",
+    "save": "Save",
+    "cancel": "Cancel",
+    "application": {
+        "title": "Pancake Management"
+    },
+    "ingredient": {
+        "title": "Ingredients",
+        "addBtn": "Add ingredient",
+        "name": "Name",
+        "price": "Price(BAM)",
+        "healthyIngredient": "healthyIngredient",
+        "ingredientCategoriesId": "ingredientCategoriesId",
+        "addModalTitle": "New ingredient",
+        "editModalTitle": "Edit ingredient"
+    }
+}

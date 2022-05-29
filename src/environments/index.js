@@ -2,7 +2,7 @@
 import developmentConfig from "./config.development.json";
 import productionConfig from "./config.production.json";
 
-function f1() {
+let f1 = () => {
     switch (process.env.NODE_ENV) {
         case "development":
         case "test": {
@@ -16,6 +16,6 @@ function f1() {
             throw new Error("NODE_ENV not being set");
         }
     }
-}
+};
 
 export default f1;
