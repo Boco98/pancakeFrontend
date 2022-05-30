@@ -32,6 +32,9 @@ const Order = () => {
         {
             title: t("order.datetime"),
             dataIndex: "datetime",
+            render: (date_time) => {
+                return String(date_time);
+            },
         },
         {
             title: t("odred.discount_id"),
@@ -47,7 +50,7 @@ const Order = () => {
             // eslint-disable-next-line react/display-name
             render: (_text, record) => (
                 <Space size="middle">
-                    <a href="/#" onClick={() => openEditModal(record)}>{t("edit")}</a>
+                    <a href="/orders#" onClick={() => openEditModal(record)}>{t("edit")}</a>
                     <Popconfirm
                         title={t("areYouSure")}
                         okText={t("yes")}

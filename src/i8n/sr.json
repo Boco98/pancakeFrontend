@@ -34,8 +34,16 @@
         "title": "Palacinke",
         "addBtn": "Dodaj palacinku",
         "name": "Ime",
+        "name1": "Naziv palacinke",
         "addModalTitle": "Nova palacinka",
         "editModalTitle": "Izmjeni palacinku",
         "ingredient": "Sastojak"
+    },
+    "order": {
+        "title": "Narudzbe",
+        "addBtn": "Dodaj narudzbu",
+        "addModalTitle": "Nova narudzba",
+        "editModalTitle": "Izmjeni narudzbu",
+        "datetime": "datum i vrijeme"
     }
 }

@@ -52,7 +52,7 @@ const OrderModal = (props) => {
                 <Form.Item
                     name="pancake"
                     rules={[{ required: true, message: t("fieldRequired") }]}
-                    label={t("pancake.name")}
+                    label={t("pancake.name1")}
                 >
                     <Select>
                         {pancake.map((e) => (

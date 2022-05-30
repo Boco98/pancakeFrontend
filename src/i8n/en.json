@@ -35,8 +35,17 @@
         "title": "Pancakes",
         "addBtn": "Add pancake",
         "name": "Name",
+        "name1": "Name of pancake",
         "addModalTitle": "New pancake",
         "editModalTitle": "Edit pancake",
         "ingredient": "Ingredient"
+    },
+    "order": {
+        "title": "Orders",
+        "addBtn": "Add order",
+        "name": "Name",
+        "addModalTitle": "New order",
+        "editModalTitle": "Edit order",
+        "datetime": "date and time"
     }
 }
