@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ingredientService from "../../services/ingredient.service";
+import orderService from "../../services/order.service";
 import { useTranslation } from "react-i18next";
-import { Button, message, Popconfirm, Space, Table, Typography } from "antd";
-import IngredientModal from "./components/IngredientModal";
+import { Button, message, Popconfirm, Space, Typography } from "antd";
+import OrderModal from "./components/OrderModal";
 import {
     Content,
     StyledTable,
@@ -14,15 +14,15 @@ import {
     handleUpdateError,
 } from "../../util.js/errorHandlers";
 
-const Ingredient = () => {
+const Order = () => {
     const { t } = useTranslation();
-    const [ingredients, setIngredients] = useState([]);
+    const [orders, setOrders] = useState([]);
     const [modalVisible, setModalVisible] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const [editMode, setEditMode] = useState(false);
-    const [selectedIngredient, setSelectedIngredient] = useState(null);
+    const [selectedOrder, setSelectedOrder] = useState(null);
     useEffect(() => {
-        ingredientService.getAll().then((res) => setIngredients(res.data));
+        orderService.getAll().then((res) => setOrders(res.data));
     }, []);
     const columns = [
         {
@@ -30,24 +30,16 @@ const Ingredient = () => {
             dataIndex: "id",
         },
         {
-            title: t("ingredient.name"),
-            dataIndex: "name",
+            title: t("order.datetime"),
+            dataIndex: "datetime",
         },
         {
-            title: t("ingredient.price"),
-            dataIndex: "price",
+            title: t("odred.discount_id"),
+            dataIndex: "discount_id",
         },
         {
-            title: t("ingredient.healthyIngredient"),
-            dataIndex: "healthyIngredient",
-            render: (text) => {
-                text = String(text);
-                return text;
-            },
-        },
-        {
-            title: t("ingredient.ingredientCategoriesName"),
-            dataIndex: "ingredientCategoriesName",
+            title: t("order.description"),
+            dataIndex: "description",
         },
         {
             title: t("actions"),
@@ -73,28 +65,28 @@ const Ingredient = () => {
         setEditMode(false);
         setModalVisible(true);
     };
-    const openEditModal = (ingredient) => {
-        setSelectedIngredient(ingredient);
+    const openEditModal = (order) => {
+        setSelectedOrder(order);
         setEditMode(true);
         setModalVisible(true);
     };
     const closeModal = () => {
-        setSelectedIngredient(null);
+        setSelectedOrder(null);
         setConfirmLoading(false);
         setEditMode(false);
         setModalVisible(false);
     };
 
-    const saveData = (ingredient) => {
+    const saveData = (order) => {
         setConfirmLoading(true);
         if (editMode) {
-            ingredientService
-                .update(ingredient)
+            orderService
+                .update(order)
                 .then((res) => {
                     message.success(t("editSuccess"));
                     closeModal();
-                    setIngredients(
-                        ingredients.map((el) => (el.id === res.id ? { ...el, ...res } : el))
+                    setOrders(
+                        orders.map((el) => (el.id === res.id ? { ...el, ...res } : el))
                     );
                 })
                 .catch((err) => {
@@ -102,12 +94,12 @@ const Ingredient = () => {
                     handleUpdateError(err, t);
                 });
         } else {
-            ingredientService
-                .insert(ingredient)
+            orderService
+                .insert(order)
                 .then((res) => {
                     closeModal();
                     message.success(t("insertSuccess"));
-                    setIngredients([...ingredients, res]);
+                    setOrders([...orders, res]);
                 })
                 .catch((err) => {
                     setConfirmLoading(false);
@@ -116,12 +108,12 @@ const Ingredient = () => {
         }
     };
 
-    const onDelete = (ingredient) => {
-        ingredientService
-            .remove(ingredient.id)
+    const onDelete = (order) => {
+        orderService
+            .remove(order.id)
             .then(() => {
                 message.success(t("deleteSuccess"));
-                setIngredients(ingredients.filter((el) => el.id !== ingredient.id));
+                setOrders(orders.filter((el) => el.id !== order.id));
             })
             .catch((err) => {
                 handleDeleteError(err, t);
@@ -132,22 +124,22 @@ const Ingredient = () => {
     return (
         <Content>
             <Toolbar>
-                <Typography.Title level={3}>{t("ingredient.title")}</Typography.Title>
+                <Typography.Title level={3}>{t("order.title")}</Typography.Title>
                 <Button type="primary" onClick={() => openAddModal()}>
-                    {t("ingredient.addBtn")}
+                    {t("order.addBtn")}
                 </Button>
             </Toolbar>
             <StyledTable
                 key="id"
-                dataSource={ingredients}
+                dataSource={orders}
                 columns={columns}
                 scroll={{ y: "calc(100vh - 250px)" }}
             />
-            <IngredientModal
+            <OrderModal
                 editMode={editMode}
                 visible={modalVisible}
                 confirmLoading={confirmLoading}
-                ingredient={selectedIngredient}
+                order={selectedOrder}
                 onCancel={closeModal}
                 onOk={saveData}
             />
@@ -155,4 +147,4 @@ const Ingredient = () => {
     );
 };
 
-export default Ingredient;
+export default Order;

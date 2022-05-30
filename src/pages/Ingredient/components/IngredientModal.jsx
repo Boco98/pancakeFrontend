@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Form, Input, InputNumber, Modal } from "antd";
+import { Form, Input, InputNumber, Modal, Select } from "antd";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 
@@ -56,6 +56,7 @@ const IngredientModal = (props) => {
                     label={t("ingredient.healthyIngredient")}
                 >
                     <InputNumber min={0} max={1} precision={0} />
+                    <label>(true = 1, false  = 0)</label>
                 </Form.Item>
                 <Form.Item
                     name="ingredientCategoriesId"
@@ -63,6 +64,7 @@ const IngredientModal = (props) => {
                     label={t("ingredient.ingredientCategoriesId")}
                 >
                     <InputNumber min={1} max={4} precision={0} />
+                    <label>(1-baza,2-fil,3-preliv,4-voce)</label>
                 </Form.Item>
             </Form>
         </Modal>

@@ -16,6 +16,7 @@
     "editFail": "Edit error.",
     "deleteSuccess": "Delete success.",
     "deleteFail": "Delete error.",
+    "duplicate": "Duplicate entry",
     "application": {
         "title": "Pancake Management"
     },
@@ -24,9 +25,18 @@
         "addBtn": "Add ingredient",
         "name": "Name",
         "price": "Price(BAM)",
-        "healthyIngredient": "healthyIngredient",
-        "ingredientCategoriesId": "ingredientCategoriesId",
+        "healthyIngredient": "Healthy ingredient?",
+        "ingredientCategoriesName": "Name of category",
+        "ingredientCategoriesId": "CategoryId",
         "addModalTitle": "New ingredient",
         "editModalTitle": "Edit ingredient"
+    },
+    "pancake": {
+        "title": "Pancakes",
+        "addBtn": "Add pancake",
+        "name": "Name",
+        "addModalTitle": "New pancake",
+        "editModalTitle": "Edit pancake",
+        "ingredient": "Ingredient"
     }
 }

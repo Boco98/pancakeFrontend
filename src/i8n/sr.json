@@ -22,11 +22,20 @@
     "ingredient": {
         "title": "Sastojci",
         "addBtn": "Dodaj sastojak",
-        "name": "Ime",
+        "name": "Naziv",
         "price": "Cijena(KM)",
-        "healthyIngredient": "ZdravSastojak",
-        "ingredientCategoriesId": "IdKategorijeSastojka",
+        "healthyIngredient": "Zdrav sastojak?",
+        "ingredientCategoriesName": "Kategorija sastojka",
+        "ingredientCategoriesId": "Id Kategorije sastojka",
         "addModalTitle": "Novi sastojak",
         "editModalTitle": "izmjeni sasatojak"
+    },
+    "pancake": {
+        "title": "Palacinke",
+        "addBtn": "Dodaj palacinku",
+        "name": "Ime",
+        "addModalTitle": "Nova palacinka",
+        "editModalTitle": "Izmjeni palacinku",
+        "ingredient": "Sastojak"
     }
 }
